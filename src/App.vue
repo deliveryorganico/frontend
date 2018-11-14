@@ -7,6 +7,7 @@
       <Parallax></Parallax>
       <Cuerpo></Cuerpo>
       <Login></Login>
+      <Register></Register>
       <Pie></Pie>
     </v-content>
   </v-app>
@@ -18,6 +19,7 @@
   import Cuerpo from './components/Cuerpo';
   import Pie from './components/Pie';
   import Login from './components/Login';
+  import Register from './components/Register';
   
   export default {
     name: 'App',
@@ -27,6 +29,7 @@
       Parallax,
       Pie,
       Login,
+      Register,
     },
     data () {
       return {
