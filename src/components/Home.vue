@@ -1,22 +1,30 @@
 <template>
   <div id="home">
-    <Parallax></Parallax>
-    <Cuerpo></Cuerpo>
-    <v-layout>
-      <Cards v-for="card in cards" :key="card.id" :id="card.id" :reviews="card.reviews" :value="card.value"></Cards>
-    </v-layout>
+    <Toolbar></Toolbar>
+    <v-content>
+      <Parallax></Parallax>
+      <Cuerpo></Cuerpo>
+      <v-layout>
+        <Cards v-for="card in cards" :key="card.id" :id="card.id" :reviews="card.reviews" :value="card.value"></Cards>
+      </v-layout>
+    </v-content>
+    <Pie></Pie>
   </div>
 </template>
 
 <script>
   import Cards from './Home/Cards';
   import Parallax from './Home/Parallax';
+  import Pie from './Pie'
+  import Toolbar from './Toolbar';
 
   export default {
     name: 'Home',
     components: {
       Cards,
-      Parallax
+      Parallax,
+      Pie,
+      Toolbar
     },
     data: () => {
       return {
