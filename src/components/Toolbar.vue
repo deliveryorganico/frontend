@@ -4,15 +4,23 @@
     <v-toolbar-title>Title</v-toolbar-title>
     <v-spacer></v-spacer>
     <v-toolbar-items class="hidden-sm-and-down">
-      <v-btn flat>Link</v-btn>
-      <v-btn flat href="/login">Login</v-btn>
-      <v-btn flat href="/register">Register</v-btn>
+
+
+      <v-menu :nudge-width="100">
+        <v-toolbar-title slot="activator">
+          <v-btn icon> 
+            <v-icon>apps</v-icon>
+          </v-btn>
+        </v-toolbar-title>
+        <v-list>
+          <v-list-tile v-for="item in items2" :key="item" :to="item.route">
+            <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+          </v-list-tile>
+        </v-list>
+      </v-menu>
+
     </v-toolbar-items>
-    <v-navigation-drawer
-      v-model="drawer"
-      absolute
-      temporary
-    >
+    <v-navigation-drawer v-model="drawer" absolute temporary>
       <v-list class="pa-1">
         <v-list-tile avatar>
           <v-list-tile-avatar>
@@ -28,10 +36,7 @@
       <v-list class="pt-0" dense>
         <v-divider></v-divider>
 
-        <v-list-tile
-          v-for="item in items"
-          :key="item.title"
-        >
+        <v-list-tile v-for="item in items" :key="item.title">
           <v-list-tile-action>
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-tile-action>
@@ -53,7 +58,11 @@ export default {
         drawer: null,
         items: [
           { title: 'Home', icon: 'dashboard' },
-          { title: 'About', icon: 'question_answer' }
+          { title: 'About', icon: 'question_answer' },
+        ],
+        items2: [
+          { title: 'Login', route: '/login'},
+          { title: 'Register', route: '/register'},
         ]
       }
     }
