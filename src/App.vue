@@ -13,6 +13,8 @@
 <script>
   import Toolbar from './components/Toolbar';
   import Pie from './components/Pie';
+  import Login from './components/Login';
+  import Register from './components/Register';
   
   export default {
     name: 'App',
