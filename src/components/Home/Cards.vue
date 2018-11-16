@@ -31,11 +31,9 @@
               </div>
             </div>
             <v-spacer></v-spacer>
-            <v-btn icon class="mr-0">
-              <router-link>
-                <v-btn round color="primary" dark>mdi-chevron-right</v-btn>
-              </router-link>
-            </v-btn>
+            <router-link to="/comprar">
+              <v-btn round color="primary" dark>Comprar</v-btn>
+            </router-link>
           </v-card-title>
         </v-card>
       </v-hover>
