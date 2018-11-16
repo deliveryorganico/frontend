@@ -28,10 +28,12 @@
             </div>
           </div>
         </div>
+
+        
         <v-spacer></v-spacer>
-        <v-btn icon class="mr-0">
-          <v-icon>mdi-chevron-right</v-icon>
-        </v-btn>
+          <router-link to="/comprar">
+            <v-btn round color="primary" dark>Comprar</v-btn>
+          </router-link>
       </v-card-title>
     </v-card>
   </v-hover>
