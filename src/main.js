@@ -6,6 +6,7 @@ import Home from './components/Home.vue'
 import Login from './components/User/Login.vue'
 import Register from './components/User/Register.vue'
 import Comprar from './components/Comprar.vue'
+import Profile from './components/Profile/Profile.vue'
 
 Vue.config.productionTip = false
 
@@ -16,6 +17,7 @@ const routes = [
   { path: '/login', component: Login },
   { path: '/register', component: Register },
   { path: '/comprar', component: Comprar },
+  { path: '/profile', component: Profile }
 ]
 
 const router = new VueRouter({
