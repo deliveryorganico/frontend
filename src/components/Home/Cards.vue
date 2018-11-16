@@ -32,7 +32,9 @@
             </div>
             <v-spacer></v-spacer>
             <v-btn icon class="mr-0">
-              <v-icon>mdi-chevron-right</v-icon>
+              <router-link>
+                <v-btn round color="primary" dark>mdi-chevron-right</v-btn>
+              </router-link>
             </v-btn>
           </v-card-title>
         </v-card>
