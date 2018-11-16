@@ -3,8 +3,8 @@ import VueRouter from 'vue-router'
 import './plugins/vuetify'
 import App from './App.vue'
 import Home from './components/Home.vue'
-import Login from './components/Login.vue'
-import Register from './components/Register.vue'
+import Login from './components/User/Login.vue'
+import Register from './components/User/Register.vue'
 
 Vue.config.productionTip = false
 
