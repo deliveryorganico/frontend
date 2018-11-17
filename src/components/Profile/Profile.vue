@@ -1,75 +1,31 @@
 <template>
   <div id="profile">
     <Toolbar></Toolbar>
-    <v-layout column justify-center>
-
-    <v-expansion-panel popout>
-      <v-expansion-panel-content
-        v-for="(message, i) in messages"
-        :key="i"
-        hide-actions
-      >
-        <v-layout
-          slot="header"
-          align-center
-          row
-          spacer
-        >
-          <v-flex xs4 sm2 md1>
-            <v-avatar
-              slot="activator"
-              size="36px"
-            >
-              <v-icon
-                v-if="message.avatar"
-                alt="Avatar"> account_circle
-              </v-icon>
-
-            </v-avatar>
-          </v-flex>
-
-          <v-flex sm5 md3 hidden-xs-only>
-            <strong v-html="message.name"></strong>
-            <span
-              v-if="message.total"
-              class="grey--text"
-            >
-              &nbsp;({{ message.total }})
-            </span>
-          </v-flex>
-
-          <v-flex no-wrap xs5 sm3>
-            <v-chip
-              v-if="message.new"
-              :color="`${message.color} lighten-4`"
-              class="ml-0"
-              label
-              small
-            >
-              {{ message.new }} new
-            </v-chip>
-            <strong v-html="message.title"></strong>
-          </v-flex>
-
-          <v-flex
-            v-if="message.excerpt"
-            class="grey--text"
-            ellipsis
-            hidden-sm-and-down
-          >
-            &mdash;
-            {{ message.excerpt }}
-          </v-flex>
-        </v-layout>
-
-        <v-card>
-          <v-divider></v-divider>
-          <v-card-text v-text="lorem">
-          </v-card-text>
+    <v-layout>
+      <v-flex xs12 sm1 offset-sm1>
+        <v-card max-width = "200">
+          <v-img>
+            src="https://avatars0.githubusercontent.com/u/9064066?v=4&s=460"
+            aspect-ratio="2.0"
+          </v-img>
+          <v-card-title primary-title>
+            <div>
+              <h3 class="headline mb-0">Hugo Torres</h3>
+              <div>Hugo.torres@gmail.com<br>26 anios</div>
+            </div>
+          </v-card-title>
         </v-card>
-      </v-expansion-panel-content>
-    </v-expansion-panel>
-  </v-layout>
+      </v-flex>
+      <v-flex xs12>
+        <u><h2 class="text-sm-left grey">INFORMACION PERSONAL</h2></u>
+        <h3 class="text-sm-left ">Nombre Completo:</h3>
+        <h3 class="text-sm-left ">Fecha de Nacimiento:</h3>
+        <h3 class="text-sm-left ">Email:</h3>
+        <h3 class="text-sm-left ">Cantidad de Productos vendidos:</h3>
+        <h3 class="text-sm-left ">Compania/vendedor:</h3>
+        <h3 class="text-sm-left ">Reputacion:</h3>
+      </v-flex>
+    </v-layout>
     <Pie></Pie>
   </div>
 </template>
@@ -84,15 +40,11 @@
       Pie,
       Toolbar
     },
-    data: () => ({
-      messages: [
-        {
-          avatar: 'https://avatars0.githubusercontent.com/u/9064066?v=4&s=460',
-          name: 'User Name',
-          title: 'Descripcion Personal',
+    data () {
+     return {
+       card_text: 'Lorem ipsum dolor sit amet, brute iriure accusata ne mea. Eos suavitate referrentur ad, te duo agam libris qualisque, utroque quaestio accommodare no qui. Et percipit laboramus usu, no invidunt verterem nominati mel. Dolorem ancillae an mei, ut putant invenire splendide mel, ea nec propriae adipisci. Ignota salutandi accusamus in sed, et per malis fuisset, qui id ludus appareat.'
+     }
+   }
+  }
 
-        }
-      ],
-    })
-}
 </script>
