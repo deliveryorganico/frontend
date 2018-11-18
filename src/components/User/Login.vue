@@ -1,6 +1,9 @@
 <template>
   <v-app id="inspire">
     <v-content>
+      <div v-for="user in users" :key="user.id">
+        {{ user }}
+      </div>
       <v-container fluid fill-height>
         <v-layout align-center justify-center>
           <v-flex xs12 sm8 md4>
@@ -36,9 +39,19 @@
 </template>
 
 <script>
+  import axios from 'axios';
+
   export default {
-    data: () => ({
-      drawer: null
-    })
+    data () {
+      return {
+        users: null
+      }
+    },
+    created () {
+      axios.get('http://192.168.20.182:8000/rest/profile/')
+      .then(res => {
+        this.users = res.data
+      });
+    }
   }
 </script> 
