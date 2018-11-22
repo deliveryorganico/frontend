@@ -3,19 +3,12 @@
     <Toolbar></Toolbar>
 
 <template>
-  <v-layout row>
-    <v-flex xs12 sm6 offset-sm3>
+  <v-layout row style="margin-top: 40px">
+    <v-flex xs12 sm6 offset-sm3 style="margin-bottom: 40px">
       <v-card>
-        <v-img
-          src="https://cdn.vuetifyjs.com/images/lists/ali.png"
-          height="300px"
-        >
-          <v-layout
-            column
-            fill-height
-          >
+        <v-img src="https://previews.123rf.com/images/garloon/garloon1503/garloon150300017/37887938-granos-de-caf%C3%A9-en-la-textura-de-fondo-de-la-tabla.jpg" height="300px">
+          <v-layout column fill-height>
             <v-spacer></v-spacer>
-
             <v-card-title class="white--text pl-5 pt-5">
               <div class="display-1 pl-5 pt-5">Cafe Badilico</div>
             </v-card-title>
@@ -31,7 +24,7 @@
 
             <v-list-tile-content>
               <v-list-tile-title>Precio</v-list-tile-title>
-              <v-list-tile-sub-title>192$</v-list-tile-sub-title>
+              <v-list-tile-sub-title style="text-align: right; color: black; font-size: 25px">$192</v-list-tile-sub-title>
             </v-list-tile-content>
           </v-list-tile>
 
