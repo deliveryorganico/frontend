@@ -1,21 +1,12 @@
 <template>
-  <div id="Comprar">
-    <Toolbar></Toolbar>
+  <div id="comprar">
     <h1>NDEAHHHH</h1>
-    <Pie></Pie>
   </div>
 </template>
 
 <script>
-import Toolbar from './Toolbar';
-import Pie from './Pie';
-
-export default {
-  name: 'Comprar',
-  components: {
-    Toolbar,
-    Pie
+  export default {
+    name: 'Comprar'
   }
-}
 </script>
 
