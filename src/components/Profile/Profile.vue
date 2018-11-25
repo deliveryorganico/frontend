@@ -1,6 +1,5 @@
 <template>
   <div id="profile">
-    <Toolbar></Toolbar>
     <v-layout>
       <v-flex xs2>
         <v-container grid-list-md text-xs-center>
@@ -42,20 +41,11 @@
         </v-container>
       </v-flex>
     </v-layout>
-    <Pie></Pie>
   </div>
 </template>
 
 <script>
-  import Pie from '../Pie'
-  import Toolbar from '../Toolbar'
-
   export default {
-    name: 'Profile',
-    components: {
-      Pie,
-      Toolbar
-    },
+    name: 'Profile'
   }
-
 </script>

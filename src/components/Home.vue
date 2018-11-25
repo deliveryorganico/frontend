@@ -1,6 +1,5 @@
 <template>
   <div id="home">
-    <Toolbar></Toolbar>
     <v-content>
       <Parallax></Parallax>
       <Cuerpo></Cuerpo>
@@ -14,23 +13,18 @@
           ></Cards>
       </v-layout>
     </v-content>
-    <Pie></Pie>
   </div>
 </template>
 
 <script>
   import Cards from './Home/Cards';
   import Parallax from './Home/Parallax';
-  import Pie from './Pie'
-  import Toolbar from './Toolbar';
 
   export default {
     name: 'Home',
     components: {
       Cards,
-      Parallax,
-      Pie,
-      Toolbar
+      Parallax
     },
     data: () => {
       return {
