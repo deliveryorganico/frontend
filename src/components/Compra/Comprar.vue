@@ -105,6 +105,9 @@
               </v-list-tile-action>
             </v-list-tile>
           </v-list>
+          <v-btn absolute color="orange" class="white--text" fab large right bottom>
+              <v-icon>add</v-icon>
+          </v-btn>
         </v-card>
       </v-flex>
     </v-layout>
