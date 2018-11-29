@@ -8,6 +8,7 @@ import Login from './components/User/Login.vue'
 import Register from './components/User/Register.vue'
 import Comprar from './components/Compra/Comprar.vue'
 import Profile from './components/Profile/Profile.vue'
+import Carrito from './components/Carrito/Carrito.vue'
 
 Vue.config.productionTip = false
 
@@ -44,6 +45,14 @@ const routes = [
         name: 'profile',
         meta: {
           title: 'Perfil'
+        }
+      },
+      {
+        path: 'carrito',
+        component: Carrito,
+        name: 'carrito',
+        meta: {
+          title: 'Carrito'
         }
       }
     ] 
