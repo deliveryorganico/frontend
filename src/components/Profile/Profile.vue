@@ -37,20 +37,21 @@
               <template v-for="(item, i) in items">
                 <v-divider v-if="item.divider" :key="i"></v-divider>
                 <v-list-tile v-else :key="item.title" @click>
-                  <v-list-tile-action>
-                    <v-icon>{{ item.icon }}</v-icon>
-                  </v-list-tile-action>
                   <v-list-tile-title>{{ item.title }}</v-list-tile-title>
                 </v-list-tile>
-
               </template>
               <v-card>
                 <v-container>
-                  <div v-bind:style="styleObject">Descripcion Adicional</div>
+                  <div v-bind:style="styleObject">Ubicacion</div>
                 </v-container>
               </v-card>
               <v-list>
-                <div v-bind:style="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+                <template v-for="(direc, i) in direcs">
+                  <v-divider v-if="direc.divider" :key="i"></v-divider>
+                  <v-list-tile v-else :key="direc.title" @click>
+                    <v-list-tile-title>{{ direc.title }}</v-list-tile-title>
+                  </v-list-tile>
+                </template>
               </v-list>
             </v-list>
 
@@ -81,9 +82,15 @@
     ],
     items: [
       { title: 'Nombre Completo: Jose del Valle Hernandez'},
-      { title: 'Reputacion: Buena'},
-      { title: 'Empresa/Vendedor: Vendedor'},
-      { title: 'Lorem Ipsum: Ader maunel Exerthum'}
+      { title: 'Compania: No'},
+      { title: 'Telefono: 351234654'},
+    ],
+    direcs: [
+      { title: 'Localidad: BsAs'},
+      { title: 'Direccion: Palermo'},
+      { title: 'Altura: 345'},
+      { title: 'Piso: 3'},
+      { title: 'Codigo Postal: 310'}
     ],
     styleObject: {
       color: 'grey',
@@ -93,6 +100,7 @@
       color: 'black',
       fontSize: '16px'
     }
+
 
   })
   }
