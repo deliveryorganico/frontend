@@ -14,7 +14,7 @@
       <v-divider></v-divider>
 
       <v-card-text class="">
-        &copy;2018 — <strong>Delivery Orgánico 2018</strong>
+        &copy;2018 — <strong>Delivery Orgánico</strong>
       </v-card-text>
     </v-card>
   </v-footer>

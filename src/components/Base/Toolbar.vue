@@ -29,14 +29,26 @@
             </v-list-tile-action>
 
             <v-list-tile-content>
-              <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+              <v-list-tile-title>
+                <router-link 
+                  class="link"
+                  :to="item.route">
+                  {{ item.title }}
+                </router-link>
+              </v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
         </v-list>
       </v-navigation-drawer>
     <v-toolbar class="amber">
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-      <v-toolbar-title>Delivery Organico</v-toolbar-title>
+      <v-toolbar-title>
+        <router-link
+          class="link"
+          :to="{name: 'home'}">
+          Delivery Organico 
+        </router-link>
+      </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
         <v-btn flat>Link</v-btn>
@@ -52,10 +64,22 @@ export default {
       return {
         drawer: null,
         items: [
-          { title: 'Home', icon: 'dashboard' },
-          { title: 'About', icon: 'question_answer' }
+          { title: 'Home', icon: 'dashboard', route: '/' },
+          { title: 'Profile', icon: 'person', route: 'profile' }
         ]
       }
     }
 }
 </script>
+
+<style>
+  a {
+    color: black;
+    text-decoration: none;
+  }
+
+  .link {
+    color: black;
+  }
+</style>
+
