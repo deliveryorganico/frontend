@@ -14,7 +14,7 @@
             <v-list>
               <template v-for="(info, i) in infos">
                 <v-divider v-if="info.divider" :key="i"></v-divider>
-                <v-list-tile v-else :key="info.title" @click>
+                <v-list-tile v-else :key="info.title">
                   <v-list-tile-action>
                     <v-icon>{{ info.icon }}</v-icon>
                   </v-list-tile-action>
@@ -36,7 +36,7 @@
             <v-list>
               <template v-for="(item, i) in items">
                 <v-divider v-if="item.divider" :key="i"></v-divider>
-                <v-list-tile v-else :key="item.title" @click>
+                <v-list-tile v-else :key="item.title">
                   <v-list-tile-title>{{ item.title }}</v-list-tile-title>
                 </v-list-tile>
               </template>
@@ -48,7 +48,7 @@
               <v-list>
                 <template v-for="(direc, i) in direcs">
                   <v-divider v-if="direc.divider" :key="i"></v-divider>
-                  <v-list-tile v-else :key="direc.title" @click>
+                  <v-list-tile v-else :key="direc.title">
                     <v-list-tile-title>{{ direc.title }}</v-list-tile-title>
                   </v-list-tile>
                 </template>
