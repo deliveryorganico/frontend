@@ -1,128 +1,87 @@
 <template>
-  <v-data-table
-    :headers="headers"
-    :items="desserts"
-    class="elevation-1"
-  >
-    <template slot="items" slot-scope="props">
-      <td>{{ props.item.name }}</td>
-      <td class="text-xs-right">{{ props.item.calories }}</td>
-      <td class="text-xs-right">{{ props.item.fat }}</td>
-      <td class="text-xs-right">{{ props.item.carbs }}</td>
-      <td class="text-xs-right">{{ props.item.protein }}</td>
-      <td class="text-xs-right">{{ props.item.iron }}</td>
-    </template>
-  </v-data-table>
+  <v-layout row style="margin-top: 40px; margin-bottom: 40px">
+    <v-flex xs12 sm6 offset-sm3>
+      <v-card>
+        <v-toolbar color="cyan" dark>
+          <v-toolbar-side-icon></v-toolbar-side-icon>
+
+          <v-toolbar-title>Carrito</v-toolbar-title>
+
+          <v-spacer></v-spacer>
+
+          <v-btn icon>
+            <v-icon>search</v-icon>
+          </v-btn>
+        </v-toolbar>
+
+        <v-list three-line>
+          <template v-for="(item, index) in items">
+            <v-subheader
+              v-if="item.header"
+              :key="item.header"
+            >
+              {{ item.header }}
+            </v-subheader>
+
+            <v-divider
+              v-else-if="item.divider"
+              :inset="item.inset"
+              :key="index"
+            ></v-divider>
+
+            <v-list-tile
+              v-else
+              :key="item.title"
+              avatar
+              @click=""
+            >
+              <v-list-tile-avatar>
+                <img :src="item.avatar">
+              </v-list-tile-avatar>
+
+              <v-list-tile-content>
+                <v-list-tile-title v-html="item.title"></v-list-tile-title>
+                <v-list-tile-sub-title v-html="item.subtitle"></v-list-tile-sub-title>
+              </v-list-tile-content>
+            </v-list-tile>
+          </template>
+        </v-list>
+      </v-card>
+    </v-flex>
+  </v-layout>
 </template>
 
 <script>
   export default {
     data () {
       return {
-        headers: [
+        items: [
+          { header: 'Productos' },
           {
-            text: 'Dessert (100g serving)',
-            align: 'left',
-            sortable: false,
-            value: 'name'
+            avatar: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
+            title: 'Cafe Badilico',
+            subtitle: "<span class='text--primary'>Precio</span> &mdash; $192"
           },
-          { text: 'Calories', value: 'calories' },
-          { text: 'Fat (g)', value: 'fat' },
-          { text: 'Carbs (g)', value: 'carbs' },
-          { text: 'Protein (g)', value: 'protein' },
-          { text: 'Iron (%)', value: 'iron' }
-        ],
-        desserts: [
+          { divider: true, inset: true },
           {
-            value: false,
-            name: 'Frozen Yogurt',
-            calories: 159,
-            fat: 6.0,
-            carbs: 24,
-            protein: 4.0,
-            iron: '1%'
+            avatar: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
+            title: 'Cafe Badilico',
+            subtitle: "<span class='text--primary'>Precio</span> &mdash; $192"
           },
+          { divider: true, inset: true },
           {
-            value: false,
-            name: 'Ice cream sandwich',
-            calories: 237,
-            fat: 9.0,
-            carbs: 37,
-            protein: 4.3,
-            iron: '1%'
+            avatar: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
+            title: 'Cafe Badilico',
+            subtitle: "<span class='text--primary'>Precio</span> &mdash; $192"
           },
+          { divider: true, inset: true },
           {
-            value: false,
-            name: 'Eclair',
-            calories: 262,
-            fat: 16.0,
-            carbs: 23,
-            protein: 6.0,
-            iron: '7%'
+            avatar: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
+            title: 'Cafe Badilico',
+            subtitle: "<span class='text--primary'>Precio</span> &mdash; $192"
           },
-          {
-            value: false,
-            name: 'Cupcake',
-            calories: 305,
-            fat: 3.7,
-            carbs: 67,
-            protein: 4.3,
-            iron: '8%'
-          },
-          {
-            value: false,
-            name: 'Gingerbread',
-            calories: 356,
-            fat: 16.0,
-            carbs: 49,
-            protein: 3.9,
-            iron: '16%'
-          },
-          {
-            value: false,
-            name: 'Jelly bean',
-            calories: 375,
-            fat: 0.0,
-            carbs: 94,
-            protein: 0.0,
-            iron: '0%'
-          },
-          {
-            value: false,
-            name: 'Lollipop',
-            calories: 392,
-            fat: 0.2,
-            carbs: 98,
-            protein: 0,
-            iron: '2%'
-          },
-          {
-            value: false,
-            name: 'Honeycomb',
-            calories: 408,
-            fat: 3.2,
-            carbs: 87,
-            protein: 6.5,
-            iron: '45%'
-          },
-          {
-            value: false,
-            name: 'Donut',
-            calories: 452,
-            fat: 25.0,
-            carbs: 51,
-            protein: 4.9,
-            iron: '22%'
-          },
-          {
-            value: false,
-            name: 'KitKat',
-            calories: 518,
-            fat: 26.0,
-            carbs: 65,
-            protein: 7,
-            iron: '6%'
-          }
+          { divider: true, inset: true },
+
         ]
       }
     }
