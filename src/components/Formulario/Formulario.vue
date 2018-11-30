@@ -13,22 +13,23 @@
               <v-container grid-list-md>
                 <v-layout wrap>
                   <v-flex xs12>
-                    <v-text-field label="Nombre del producto*" hint="Ej: Cafe badilico" persistent-hint required></v-text-field>
+                    <v-text-field label="Nombre del producto" hint="Ej: Cafe badilico" persistent-hint required></v-text-field>
                   </v-flex>
                   <v-flex xs12 sm6 md4>
-                    <v-text-field label="Precio*" required></v-text-field>
+                    <v-text-field label="Precio" required></v-text-field>
                   </v-flex>
                   <v-flex xs12 sm6 md4>
                   </v-flex>
                   <v-flex xs12 sm6 md4>
-                    <v-text-field label="Foto*"></v-text-field>
+                    <upload-btn title="Foto">
+                      <v-icon>add</v-icon>
+                    </upload-btn>
                   </v-flex>
                   <v-flex xs12>
-                    <v-text-field label="Descripcion*" required></v-text-field>
+                    <v-text-field label="Descripcion" required></v-text-field>
                   </v-flex>
                 </v-layout>
               </v-container>
-              <small>*indicates required field</small>
             </v-card-text>
             <v-card-actions>
               <v-spacer></v-spacer>
@@ -42,11 +43,15 @@
 </template>
 
 <script>
+  import UploadButton from 'vuetify-upload-button';
   export default {
     name: 'Formulario',
     data: () => ({
       dialog: false
-    })
+    }),
+    components: {
+      'upload-btn': UploadButton
+    }
   }
 </script>
   
