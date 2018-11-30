@@ -3,12 +3,10 @@
     <v-flex xs12 sm6 offset-sm3>
       <v-card>
         <v-toolbar color="cyan" dark>
-          <v-toolbar-side-icon></v-toolbar-side-icon>
 
           <v-toolbar-title>Carrito</v-toolbar-title>
 
           <v-spacer></v-spacer>
-          <v-text-field v-model="search" append-icon="search" label="Search" single-line hide-details></v-text-field>  
         </v-toolbar>
         
         <v-list three-line>
