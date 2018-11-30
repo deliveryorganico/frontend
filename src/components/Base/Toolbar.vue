@@ -23,6 +23,7 @@
           <v-list-tile
             v-for="item in items"
             :key="item.title"
+            :href="item.redi"
           >
             <v-list-tile-action>
               <v-icon>{{ item.icon }}</v-icon>
@@ -53,7 +54,7 @@ export default {
         drawer: null,
         items: [
           { title: 'Home', icon: 'dashboard' },
-          { title: 'About', icon: 'question_answer' }
+          { title: 'Carrito', icon: 'list', redi: "/carrito/"}
         ]
       }
     }
