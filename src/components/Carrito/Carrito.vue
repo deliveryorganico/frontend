@@ -68,20 +68,6 @@
             title: 'Cafe Badilico',
             subtitle: "<span class='text--primary'>Precio</span> &mdash; $192"
           },
-          { divider: true, inset: true },
-          {
-            avatar: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
-            title: 'Cafe Badilico',
-            subtitle: "<span class='text--primary'>Precio</span> &mdash; $192"
-          },
-          { divider: true, inset: true },
-          {
-            avatar: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
-            title: 'Cafe Badilico',
-            subtitle: "<span class='text--primary'>Precio</span> &mdash; $192"
-          },
-          { divider: true, inset: true },
-
         ]
       }
     }
