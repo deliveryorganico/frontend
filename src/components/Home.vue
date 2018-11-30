@@ -2,23 +2,23 @@
   <div id="home">
     <v-content>
       <Parallax></Parallax>
-      <Cuerpo></Cuerpo>
       <v-layout row wrap>
           <Cards 
             v-for="card in cards"
             :key="card.id"
             :id="card.id"
-            :reviews="card.reviews"
-            :value="card.value"
+            :title="card.title"
+            :img="card.photo"
           ></Cards>
       </v-layout>
     </v-content>
   </div>
 </template>
-
+mprar
 <script>
-  import Cards from './Home/Cards';
-  import Parallax from './Home/Parallax';
+  import axios from 'axios'
+  import Cards from './Home/Cards'
+  import Parallax from './Home/Parallax'
 
   export default {
     name: 'Home',
@@ -26,17 +26,19 @@
       Cards,
       Parallax
     },
-    data: () => {
+    data() {
       return {
-        cards: [
-          { id: 1, reviews: 413, value:3.2 },
-          { id: 2, reviews: 512, value:5 },
-          { id: 3, reviews: 512, value:5 },
-          { id: 4, reviews: 512, value:5 },
-          { id: 5, reviews: 512, value:5 },
-          { id: 6, reviews: 512, value:5 },
-        ]
+        cards: [],
+        errors: []
       }
+    },
+    created() {
+      axios
+        .get('http://192.168.60.119:8000/rest/product/')
+        .then(res => {
+          this.cards = res.data
+        })
+        .catch(e => this.errors.push(e))
     }
   }
 </script>

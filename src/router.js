@@ -10,7 +10,6 @@ const routes = [
   { 
     path: '',
     component: Base,
-    name: 'base',
     meta: { 
       title: 'Base' 
     },
@@ -24,7 +23,7 @@ const routes = [
         }
       },
       {
-        path: 'comprar',
+        path: 'comprar/:id',
         component: Comprar,
         name: 'comprar',
         meta: {
@@ -47,9 +46,5 @@ const routes = [
 
 export default new VueRouter({
   routes,
-  mode: 'history',
-  beforeEach(to, from, next)  {
-    document.title = to.meta.title
-    next()
-  }
+  mode: 'history'
 })

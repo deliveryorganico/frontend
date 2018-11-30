@@ -10,28 +10,15 @@
         >
           <v-img
             :aspect-ratio="16/9"
-            src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
+            :src="img"
           ></v-img>
           <v-card-title>
             <div>
-              <span class="headline">Cafe Badilico</span>
-              <div class="d-flex">
-                <v-rating
-                  :value="value"
-                  color="amber"
-                  dense
-                  half-increments
-                  readonly
-                  size="14"
-                ></v-rating>
-                <div class="ml-2 grey--text text--darken-2">
-                  <span>{{ value }}</span>
-                  <span>({{ reviews }})</span>
-                </div>
-              </div>
+              <span class="headline">{{ title }}</span>
             </div>
             <v-spacer></v-spacer>
-            <router-link to="/comprar">
+            <router-link 
+              :to="{name: 'comprar', params: {id: id}}">
               <v-btn round color="primary" dark>Comprar</v-btn>
             </router-link>
           </v-card-title>
@@ -43,6 +30,6 @@
 
 <script>
   export default {
-    props: ['id', 'reviews', 'value']
+    props: ['id', 'title', 'img']
   }
 </script>

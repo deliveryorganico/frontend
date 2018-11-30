@@ -3,11 +3,13 @@
     <v-layout row style="margin-top: 40px">
       <v-flex xs12 sm6 offset-sm3 style="margin-bottom: 40px">
         <v-card>
-          <v-img src="https://previews.123rf.com/images/garloon/garloon1503/garloon150300017/37887938-granos-de-caf%C3%A9-en-la-textura-de-fondo-de-la-tabla.jpg" height="300px">
+          <v-img 
+            :src="datos.photo" 
+            height="300px">
             <v-layout column fill-height>
               <v-spacer></v-spacer>
-              <v-card-title class="white--text pl-5 pt-5">
-                <div class="display-1 pl-5 pt-5">Cafe Badilico</div>
+              <v-card-title class="black--text pl-5 pt-5">
+                <div class="display-1 pl-5 pt-5">{{ datos.title }}</div>
               </v-card-title>
             </v-layout>
           </v-img>
@@ -21,7 +23,7 @@
 
               <v-list-tile-content>
                 <v-list-tile-title>Precio</v-list-tile-title>
-                <v-list-tile-sub-title style="text-align: right; color: black; font-size: 25px">$192</v-list-tile-sub-title>
+                <v-list-tile-sub-title style="text-align: right; color: black; font-size: 25px">${{ datos.price }}</v-list-tile-sub-title>
               </v-list-tile-content>
             </v-list-tile>
 
@@ -112,12 +114,24 @@
 </template>
 
 <script>
-export default {
-  name: 'Comprar',
-  data: () => ({
-    rating: 4.3,
-    items: ['1', '2', '3', '4', '5', '10'],
-  })
-}
+  import axios from 'axios'
+  
+  export default {
+    name: 'Comprar',
+    data() {
+      return {
+        datos: [],
+        rating: 4.3,
+        items: ['1', '2', '3', '4', '5', '10'],
+      }
+    },
+    created() {
+      axios
+        .get('http://192.168.60.119:8000/rest/product/1/')
+        .then(res => {
+          this.datos = res.data
+        })
+    }
+  }
 </script>
 
