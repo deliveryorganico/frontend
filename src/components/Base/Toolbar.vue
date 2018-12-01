@@ -59,14 +59,20 @@
 </template>
 
 <script>
-export default {
-  name: "Toolbar",
-  data () {
-      return {
-        drawer: null,
-        items: [
-          { title: 'Profile', icon: 'person', route: 'profile' }
-        ]
+  export default {
+    name: "Toolbar",
+    data () {
+        return {
+          drawer: null,
+          items: [
+            { title: 'Home', icon: 'dashboard', route: '/' },
+            { title: 'Profile', icon: 'person', route: 'profile' },
+            { title: 'Carrito', route: 'carrito' }
+          ]
+        }
+      }
+  }
+</script>
 
 <style>
   a {
