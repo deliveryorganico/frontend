@@ -127,7 +127,7 @@
     },
     created() {
       axios
-        .get('http://192.168.60.119:8000/rest/product/1/')
+        .get('http://192.168.0.4:8000/rest/product/1/')
         .then(res => {
           this.datos = res.data
         })

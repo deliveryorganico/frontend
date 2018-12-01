@@ -25,7 +25,6 @@
                     required
                   />
                 </v-flex>
-                {{ models }}
                 <!-- <v-flex xs12>
                   <upload-btn
                     v-model="models[photo]"
@@ -72,19 +71,25 @@
         ],
         models : {
           title: '',
-          price: null,
           description: '',
-        }
+          price: null,
+          branch: 1,
+          photo : ''
+        },
+        errors: []
       }
     },
-    postProduct() {
-      axios
-        .post('http://192.168.60.119:8000/rest/product', {
-          title: this.title,
-          price: this.price,
-          photo: this.photo,
-          description: this. description
-        })
+    methods: {
+      postProduct() {
+        axios
+          .post('http://192.168.0.4:8000/rest/product/', this.models)
+          .then(res => {
+            this.models = res.data
+          })
+          .catch(e => {
+            this.errors.push(e)
+          })
+      }
     }
   }
 </script>

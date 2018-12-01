@@ -34,7 +34,7 @@ mprar
     },
     created() {
       axios
-        .get('http://192.168.60.119:8000/rest/product/')
+        .get('http://192.168.0.4:8000/rest/product/')
         .then(res => {
           this.cards = res.data
         })
