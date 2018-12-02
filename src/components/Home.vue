@@ -2,6 +2,7 @@
   <div id="home">
     <v-content>
       <Parallax></Parallax>
+      {{ token }}
       <v-layout row wrap>
           <Cards 
             v-for="card in cards"
@@ -29,7 +30,8 @@ mprar
     data() {
       return {
         cards: [],
-        errors: []
+        errors: [],
+        token: this.$store.state.token
       }
     },
     created() {

@@ -12,7 +12,7 @@
             </v-list-tile-avatar>
 
             <v-list-tile-content>
-              <v-list-tile-title>John Leider</v-list-tile-title>
+              <v-list-tile-title>{{ user.username }}</v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
         </v-list>
@@ -63,11 +63,13 @@
     name: "Toolbar",
     data () {
         return {
+          user: this.$store.state.user,
           drawer: null,
           items: [
             { title: 'Home', icon: 'dashboard', route: '/' },
             { title: 'Profile', icon: 'person', route: 'profile' },
-            { title: 'Carrito', route: 'carrito' }
+            { title: 'Carrito', route: 'carrito' },
+            { title: 'Log Out', icon: 'meeting_room', route: 'logout',}
           ]
         }
       }

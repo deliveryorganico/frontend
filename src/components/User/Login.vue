@@ -20,10 +20,12 @@
     },
     methods: {
       login() {             
-        this.$store.dispatch('obtainToken', {
-          username: this.username,
-          password: this.password
-        }).then(res => console.log(res)).catch(error => console.log(error))
+        this.$store
+          .dispatch('obtainToken', {
+            username: this.username,
+            password: this.password
+          })
+          .then(() => this.$router.push({ name: 'home' }))
       }
     }
   }

@@ -1,12 +1,13 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Base from './components/Base.vue'
-import Home from './components/Home.vue'
-import Login from './components/User/Login.vue'
-import Register from './components/User/Register.vue'
-import Comprar from './components/Compra/Comprar.vue'
-import Profile from './components/Profile/Profile.vue'
-import Carrito from './components/Carrito/Carrito.vue'
+import Base from './components/Base'
+import Carrito from './components/Carrito/Carrito'
+import Comprar from './components/Compra/Comprar'
+import Home from './components/Home'
+import Login from './components/User/Login'
+import Logout from './components/User/Logout'
+import Profile from './components/Profile/Profile'
+import Register from './components/User/Register'
 
 Vue.use(VueRouter)
 
@@ -57,6 +58,13 @@ const routes = [
     component: Login,
     meta: { 
       title: 'Log In' 
+    }
+  },
+  {
+    path: '/logout',
+    component: Logout,
+    meta: {
+      title: 'Log Out'
     }
   },
   { path: '/register', component: Register },
