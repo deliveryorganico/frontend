@@ -1,3 +1,4 @@
+import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Base from './components/Base.vue'
 import Home from './components/Home.vue'
@@ -6,6 +7,8 @@ import Register from './components/User/Register.vue'
 import Comprar from './components/Compra/Comprar.vue'
 import Profile from './components/Profile/Profile.vue'
 import Carrito from './components/Carrito/Carrito.vue'
+
+Vue.use(VueRouter)
 
 const routes = [
   { 
@@ -49,7 +52,13 @@ const routes = [
       }
     ]
   },
-  { path: '/login', component: Login },
+  { 
+    path: '/login',
+    component: Login,
+    meta: { 
+      title: 'Log In' 
+    }
+  },
   { path: '/register', component: Register },
 ]
 

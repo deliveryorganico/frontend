@@ -1,10 +1,8 @@
 import Vue from 'vue'
-import VueRouter from 'vue-router'
-import router from './router.js'
 import './plugins/vuetify'
 import App from './App.vue'
-
-Vue.use(VueRouter)
+import router from './router.js'
+import store from './store.js'
 
 router.beforeEach((to, from, next) => {
   document.title = to.meta.title
@@ -13,5 +11,6 @@ router.beforeEach((to, from, next) => {
 
 new Vue({
   router,
+  store,
   render: h => h(App),
 }).$mount('#app')
