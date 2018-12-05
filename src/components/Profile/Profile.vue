@@ -37,7 +37,9 @@
               <template v-for="(item, i) in items">
                 <v-divider v-if="item.divider" :key="i"></v-divider>
                 <v-list-tile v-else :key="item.title" @click>
-                  <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+                  <v-list-tile-title>
+                    {{ item.quest }}
+                    {{ item.title }}</v-list-tile-title>
                 </v-list-tile>
               </template>
               <v-card>
@@ -49,7 +51,10 @@
                 <template v-for="(direc, i) in direcs">
                   <v-divider v-if="direc.divider" :key="i"></v-divider>
                   <v-list-tile v-else :key="direc.title" @click>
-                    <v-list-tile-title>{{ direc.title }}</v-list-tile-title>
+                    <v-list-tile-title>
+                      {{ direc.quest }}
+                      {{ direc.title }}
+                    </v-list-tile-title>
                   </v-list-tile>
                 </template>
               </v-list>
@@ -81,16 +86,16 @@
       { icon: 'mail', title: 'jose.hernande7@gmail.com' },
     ],
     items: [
-      { title: 'Nombre Completo: Jose del Valle Hernandez'},
-      { title: 'Compania: No'},
-      { title: 'Telefono: 351234654'},
+      { quest: 'Nombre Completo:', title: 'Jose del Valle Hernandez'},
+      { quest: 'Compania:', title: ' No'},
+      { quest: 'Telefono:', title: ' 351234654'},
     ],
     direcs: [
-      { title: 'Localidad: BsAs'},
-      { title: 'Direccion: Palermo'},
-      { title: 'Altura: 345'},
-      { title: 'Piso: 3'},
-      { title: 'Codigo Postal: 310'}
+      { quest: 'Localidad: ', title: 'BsAs'},
+      { quest: 'Direccion: ', title: 'Palermo'},
+      { quest: 'Altura: ', title: '345'},
+      { quest: 'Piso:', title: '3'},
+      { quest: 'Codigo Postal:', title: '310'}
     ],
     styleObject: {
       color: 'grey',
