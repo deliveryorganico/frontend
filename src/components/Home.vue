@@ -2,7 +2,6 @@
   <div id="home">
     <v-content>
       <Parallax></Parallax>
-      {{ token }}
       <v-layout row wrap>
           <Cards 
             v-for="card in cards"

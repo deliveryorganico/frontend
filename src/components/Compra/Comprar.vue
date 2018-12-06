@@ -9,7 +9,7 @@
             <v-layout column fill-height>
               <v-spacer></v-spacer>
               <v-card-title class="black--text pl-5 pt-5">
-                <div class="display-1 pl-5 pt-5">{{ datos.title }}</div>
+                <div class="display-1 pl-5 pt-5">{{ datos.title }} {{ id }}</div>
               </v-card-title>
             </v-layout>
           </v-img>
@@ -120,6 +120,7 @@
     name: 'Comprar',
     data() {
       return {
+        id: this.$route.params.id,
         datos: [],
         rating: 4.3,
         items: ['1', '2', '3', '4', '5', '10'],
@@ -127,9 +128,12 @@
     },
     created() {
       axios
-        .get('http://192.168.0.4:8000/rest/product/1/')
-        .then(res => {
-          this.datos = res.data
+        .get(`http://192.168.0.4:8000/rest/product/${this.id}/`)
+        .then(response => {
+          this.datos = response.data
+        })
+        .catch(() => {
+          this.$router.push({ name: 'error' })
         })
     }
   }

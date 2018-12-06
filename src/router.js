@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Base from './components/Base'
-import Carrito from './components/Carrito/Carrito'
 import Comprar from './components/Compra/Comprar'
+import Error from './components/Error/Error'
 import Home from './components/Home'
 import Login from './components/User/Login'
 import Logout from './components/User/Logout'
@@ -44,11 +44,11 @@ const routes = [
         }
       },
       {
-        path: 'carrito',
-        component: Carrito,
-        name: 'carrito',
+        path: '/error',
+        component: Error,
+        name: 'error',
         meta: {
-          title: 'Carrito'
+          title: 'Error'
         }
       }
     ]
@@ -76,7 +76,7 @@ const routes = [
     meta: {
       title: 'Register'
     }
-  },
+  }
 ]
 
 export default new VueRouter({

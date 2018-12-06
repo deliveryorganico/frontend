@@ -50,10 +50,6 @@
           Delivery Organico 
         </router-link>
       </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-toolbar-items class="hidden-sm-and-down">
-        <v-btn flat>Link</v-btn>
-      </v-toolbar-items>
     </v-toolbar>
   </div>
 </template>
@@ -68,8 +64,7 @@
           items: [
             { title: 'Home', icon: 'dashboard', route: '/' },
             { title: 'Profile', icon: 'person', route: 'profile' },
-            { title: 'Carrito', route: 'carrito' },
-            { title: 'Log Out', icon: 'meeting_room', route: 'logout',}
+            { title: 'Log Out', icon: 'meeting_room', route: 'logout' }
           ]
         }
       }

@@ -6,19 +6,15 @@
           slot-scope="{ hover }"
           :class="`elevation-${hover ? 12 : 2}`"
           class="mx-auto"
-          width="344"
-        >
+          width="344">
           <v-img
             :aspect-ratio="16/9"
-            :src="img"
-          ></v-img>
+            :src="img"/>
           <v-card-title>
-            <div>
-              <span class="headline">{{ title }}</span>
-            </div>
-            <v-spacer></v-spacer>
+            <span class="headline">{{ title }}</span>
+            <v-spacer/>
             <router-link 
-              :to="{name: 'comprar', params: {id: id}}">
+              :to="{ name: 'comprar', params: { id: id } }">
               <v-btn round color="primary" dark>Comprar</v-btn>
             </router-link>
           </v-card-title>
