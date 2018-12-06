@@ -3,13 +3,15 @@
     <v-content>
       <Parallax></Parallax>
       {{ token }}
-      <v-layout row wrap>
+      <v-layout row wrap style="margin-top: 40px; margin-bottom: 40px">
+        <v-flex xs1></v-flex>
           <Cards 
             v-for="card in cards"
             :key="card.id"
             :id="card.id"
             :title="card.title"
             :img="card.photo"
+            style="margin-right: 40px; margin-left: 40px; margin-top: 40px;"
           ></Cards>
       </v-layout>
     </v-content>
@@ -36,7 +38,7 @@ mprar
     },
     created() {
       axios
-        .get('http://192.168.0.4:8000/rest/product/')
+        .get('http://0.0.0.0:8000/rest/product/')
         .then(res => {
           this.cards = res.data
         })
