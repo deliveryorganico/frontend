@@ -56,6 +56,7 @@ const routes = [
   { 
     path: '/login',
     component: Login,
+    name: 'login',
     meta: { 
       title: 'Log In' 
     }
@@ -63,11 +64,19 @@ const routes = [
   {
     path: '/logout',
     component: Logout,
+    name: 'logout',
     meta: {
       title: 'Log Out'
     }
   },
-  { path: '/register', component: Register },
+  { 
+    path: '/register',
+    component: Register,
+    name: 'register',
+    meta: {
+      title: 'Register'
+    }
+  },
 ]
 
 export default new VueRouter({

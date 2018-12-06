@@ -1,64 +1,66 @@
 <template>
-  <v-app id="inspire">
-    <v-content>
-      <v-container fluid fill-height>
-        <v-layout align-center justify-center>
-          <v-flex xs12 sm8 md4>
-            <v-card class="elevation-12">
-              <v-toolbar dark color="primary">
-                <v-toolbar-title>Register form</v-toolbar-title>
-                <v-spacer></v-spacer>
-                <v-tooltip right>
-                  <v-btn slot="activator" icon large href="https://codepen.io/johnjleider/pen/wyYVVj" target="_blank">
-                    <v-icon large>mdi-codepen</v-icon>
-                  </v-btn>
-                  <span>Codepen</span>
-                </v-tooltip>
-              </v-toolbar>
-              <v-card-text>
-                <v-form>
-                  <v-text-field v-model="name" :error-messages="nameErrors" :counter="10" label="Name" required @input="$v.name.$touch()" @blur="$v.name.$touch()"></v-text-field>
-                  <v-text-field v-model="surname" :error-messages="surnameErrors" :counter="15" label="Surname" required @input="$v.surname.$touch()" @blur="$v.surname.$touch()"></v-text-field>
-                  <v-text-field v-model="email" :error-messages="emailErrors" label="E-mail" required @input="$v.email.$touch()" @blur="$v.email.$touch()"></v-text-field>
-                  <v-text-field id="password" name="password" label="Password" type="password"></v-text-field>
-                  <v-text-field id="password" name="repeatpassword" label="Repeat Password" type="password"></v-text-field>
-                  <v-checkbox v-model="checkbox" :error-messages="checkboxErrors" label="Compania?" required @change="$v.checkbox.$touch()" @blur="$v.checkbox.$touch()" ></v-checkbox>
-                </v-form>
-              </v-card-text>
-              <v-card-actions>
-                <v-spacer></v-spacer>
-                <v-btn color="primary">Register</v-btn>
-              </v-card-actions>
-            </v-card>
-          </v-flex>
-        </v-layout>
-      </v-container>
-    </v-content>
-  </v-app>
+  <div id="register">
+    <v-app>
+      <v-content>
+        <v-container fluid fill-height>
+          <v-layout align-center justify-center>
+            <v-flex xs12 sm8 md4>
+              <v-card>
+                <v-toolbar color="amber">
+                  <v-toolbar-title>Register Form</v-toolbar-title>
+                  <v-spacer/>
+                </v-toolbar>
+                <v-card-text>
+                  <v-form @submit.prevent="register">
+                    <v-text-field v-model="user.username" label="Username" required/>
+                    <v-text-field v-model="user.first_name" label="First name" required/>
+                    <v-text-field v-model="user.last_name" label="Last name" required/>
+                    <v-text-field v-model="user.password" label="Password" required/>
+                    <v-text-field v-model="user.city" label="City" required/>
+                    <v-text-field v-model="user.locality" label="Locality" required/>
+                    <v-text-field v-model="user.address" label="Address" required/>
+                    <v-text-field v-model="user.st_number" label="Street number" required/>
+                    <v-text-field v-model="user.phone" label="Phone" required/>
+                    <v-text-field v-model="user.zip_code" label="Zip code" required/>               
+                    <v-card-actions>
+                      <v-spacer/>
+                      <v-btn color="primary" type="submit">Register</v-btn>
+                    </v-card-actions>
+                  </v-form>
+                </v-card-text>
+              </v-card>
+            </v-flex>
+          </v-layout>
+        </v-container>
+      </v-content>
+    </v-app>
+  </div>
 </template>
 
 <script>
-
   export default {
-    // mixins: [validationMixin],
-
-    // validations: {
-    //   name: { required, maxLength: maxLength(10) },
-    //   email: { required, email },
-    //   select: { required },
-    //   checkbox: {
-    //     checked (val) {
-    //       return val
-    //     }
-    //   }
-    // },
-
-    data: () => ({
-      drawer: null,
-      checkbox: false,
-    }),
-    props: {
-      source: String
+    data() {
+      return{ 
+        user: {
+          username: null,
+          first_name: null,
+          last_name: null,
+          password: null,
+          city: null,
+          locality: null,
+          address: null,
+          st_number: null,
+          phone: null,
+          zip_code: null
+        }
+      }
+    },
+    methods: {
+      register() {
+        this.$store
+          .dispatch('register', this.user)
+          .then(() => this.$router.push({ name: 'login' }))
+      }
     }
   }
 </script> 

@@ -16,9 +16,6 @@ export default new Vuex.Store({
     obtainToken(state, token) {
       state.token = token
     },
-    destroyToken(state) {
-      state.token = null
-    },
     setUser(state, user) {
       state.user = user
     }
@@ -46,9 +43,29 @@ export default new Vuex.Store({
             reject(error)
           })
       })
+    },
+    register(context, user) {
+      return new Promise((resolve, reject) => {
+        axios
+          .post('/rest/profile/', {
+            username: user.username,
+            first_name: user.first_name,
+            last_name: user.last_name,
+            password: user.password,
+            city: user.city,
+            locality: user.locality,
+            address: user.address,
+            st_number: user.st_number,
+            phone: user.phone,
+            zip_code: user.zip_code
+          })
+          .then(response => {
+            resolve(response)
+          })
+          .catch(error => {
+            reject(error)
+          })
+      })
     }
-  },
-  destroyToken(context) {
-    return context.commit('destroyToken')
   }
 })

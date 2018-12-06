@@ -19,7 +19,7 @@
               v-else-if="item.divider" :inset="item.inset" :key="index">
             </v-divider>
 
-            <v-list-tile v-else :key="item.title" avatar @click="" :search="search">
+            <v-list-tile v-else :key="item.title" avatar :search="search">
               <v-list-tile-avatar>
                 <img :src="item.avatar">
               </v-list-tile-avatar>
