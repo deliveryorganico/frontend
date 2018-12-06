@@ -4,15 +4,21 @@
       <Parallax></Parallax>
       {{ token }}
       <v-layout row wrap style="margin-top: 40px; margin-bottom: 40px">
-        <v-flex xs1></v-flex>
-          <Cards 
-            v-for="card in cards"
-            :key="card.id"
-            :id="card.id"
-            :title="card.title"
-            :img="card.photo"
-            style="margin-right: 40px; margin-left: 40px; margin-top: 40px;"
+        <!-- <v-flex xs1></v-flex> -->
+        <div v-for="card in cards"
+          :key="card.id"
+          :id="card.id"
+          :title="card.title"
+          :img="card.photo"
+          style="margin-right: 40px; margin-left: 110px; margin-top: 40px;"
+        >
+          <Cards
+          :key="card.id"
+          :id="card.id"
+          :title="card.title"
+          :img="card.photo"
           ></Cards>
+        </div>
       </v-layout>
     </v-content>
   </div>
