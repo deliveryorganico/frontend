@@ -4,11 +4,11 @@
       <v-flex xs12 sm6 offset-sm3>
         <v-card>
           <v-img
-            src="https://s-i.huffpost.com/gen/780630/thumbs/o-ILLUSTION-570.jpg?6"
+            :src="user.photo"
             height="300px"/>
           <v-list two-line>
             <div 
-              v-for="i in user"
+              v-for="i in items"
               :key="i.icon">
               <v-list-tile>
                 <v-list-tile-action>
@@ -32,14 +32,17 @@
   export default {
     name: 'Profile',
     data() {
+      const user = this.$store.state.user
+      
       return {
-        user: [
-          { icon: 'person', title: 'Usuario', data: 'Cacha'},
-          { icon: 'account_box', title: 'Nombre', data: 'Ivan Nuñez' },
-          { icon: 'phone', 'title': 'Número', data: '3513153889'},
-          { icon: 'alternate_email', title: 'E-Mail', data: 'example@gmail.com'},
-          { icon: 'place', title: 'Ubicación', data: 'Av. Siempre Viva 1234, Córoba, Córdoba'},
-          { icon: 'markunread_mailbox', title: 'Código Postal', data: '4343'}
+        user: user,
+        items: [
+          { icon: 'person', title: 'Usuario', data: user.username},
+          { icon: 'account_box', title: 'Nombre', data: `${user.first_name} ${user.last_name}` },
+          { icon: 'phone', 'title': 'Número', data: `${user.phone}`},
+          { icon: 'alternate_email', title: 'E-Mail', data: `${user.email}`},
+          { icon: 'place', title: 'Ubicación', data: `${user.address} ${user.st_number}, ${user.locality}, ${user.city}` },
+          { icon: 'markunread_mailbox', title: 'Código Postal', data: `${user.zip_code}` }
         ]
       }
     }
