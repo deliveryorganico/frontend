@@ -10,9 +10,12 @@ export default new Vuex.Store({
   state: {
     token: localStorage.getItem('access_token') || null,
     user: localStorage.getItem('user') || null,
-    products: []
+    products: null
   },
   mutations: {
+    setProducts(state, products){
+      state.products = products
+    },
     obtainToken(state, token) {
       state.token = token
     },
@@ -21,6 +24,17 @@ export default new Vuex.Store({
     }
   },
   actions: {
+    obtainProducts(context) {
+      axios
+        .get('/rest/product/')
+        .then(response => {
+          const products = response.data
+          context.commit('setProducts', products)
+        })
+        .catch(() => {
+          this.$router.push({ name: 'error' })
+        })
+    },
     obtainToken(context, credentials) {
       return new Promise((resolve, reject) => {
         axios

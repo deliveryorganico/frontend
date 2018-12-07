@@ -3,44 +3,35 @@
     <v-content>
       <Parallax></Parallax>
       <v-layout row wrap>
-          <Cards 
-            v-for="card in cards"
-            :key="card.id"
-            :id="card.id"
-            :title="card.title"
-            :img="card.photo"
-          ></Cards>
+          <Product 
+            v-for="product in products"
+            :key="product.id"
+            :id="product.id"
+            :title="product.title"
+            :img="product.photo"
+          />
       </v-layout>
     </v-content>
   </div>
 </template>
 mprar
 <script>
-  import axios from 'axios'
-  import Cards from './Home/Cards'
+  import { mapState } from 'vuex'
+  import Product from './Home/Product'
   import Parallax from './Home/Parallax'
 
   export default {
     name: 'Home',
     components: {
-      Cards,
+      Product,
       Parallax
     },
-    data() {
-      return {
-        cards: [],
-        errors: [],
-        token: this.$store.state.token
-      }
+    mounted() {
+      this.$store.dispatch('obtainProducts')
     },
-    created() {
-      axios
-        .get('http://192.168.0.4:8000/rest/product/')
-        .then(res => {
-          this.cards = res.data
-        })
-        .catch(e => this.errors.push(e))
-    }
+    computed: mapState([
+      'products'
+    ])
   }
 </script>
 

@@ -1,5 +1,5 @@
 <template>
-  <div id="card">
+  <div id="product">
     <v-flex xs6>
       <v-hover>
         <v-card
@@ -26,6 +26,7 @@
 
 <script>
   export default {
+    name: 'product',
     props: ['id', 'title', 'img']
   }
 </script>
