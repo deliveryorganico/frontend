@@ -1,5 +1,5 @@
 <template>
-  <div id="Formulario">
+  <div id="form_producto">
     <v-layout row justify-center>
       <v-dialog v-model="dialog" persistent max-width="600px">
         <button slot="activator" color="primary" dark type="button" class="v-btn v-btn--bottom v-btn--floating v-btn--fixed v-btn--right theme--dark red" style="">
@@ -10,36 +10,46 @@
             <span class="headline">Crear Producto</span>
           </v-card-title>
           <v-card-text>
-            <v-container grid-list-md>
-              <v-layout wrap>
-                <v-flex
-                  v-for="{key, label, hint} in items"
-                  :key="key"
-                  xs12
-                >
-                  <v-text-field
-                    v-model="models[key]"
-                    :label="label"
-                    :hint="hint"
-                    persistent-hint
-                    required
-                  />
-                </v-flex>
-                <!-- <v-flex xs12>
-                  <upload-btn
-                    v-model="models[photo]"
-                    title="Foto">
-                    <v-icon>add</v-icon>
-                  </upload-btn>
-                </v-flex> -->
-              </v-layout>
-            </v-container>
+            <v-form @submit.prevent="postProduct" method="POST">
+              <v-container grid-list-md>
+                <v-layout wrap>
+                  <v-flex xs12>
+                    <v-text-field 
+                      v-model="product.title"
+                      label="Nombre del producto"
+                      hint="Ej: Cafe badilico"
+                      persistent-hint
+                      required/>
+                  </v-flex>
+                  <v-flex xs12>
+                    <v-text-field 
+                      v-model="product.description"
+                      label="Descipción"
+                      required/>
+                  </v-flex>
+                  <v-flex xs12>
+                    <v-text-field 
+                      v-model="product.price"
+                      label="Precio"
+                      required/>
+                  </v-flex>
+                  {{ product }}
+                  <!-- <v-flex xs12>
+                    <upload-btn
+                      v-model="models[photo]"
+                      title="Foto">
+                      <v-icon>add</v-icon>
+                    </upload-btn>
+                  </v-flex> -->
+                </v-layout>
+              </v-container>
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn color="primary" flat @click="dialog=false">Close</v-btn>
+                <v-btn color="primary" flat type="submit">Save</v-btn>
+              </v-card-actions>
+            </v-form>
           </v-card-text>
-          <v-card-actions>
-            <v-spacer></v-spacer>
-            <v-btn color="blue darken-1" flat @click="dialog = false">Close</v-btn>
-            <v-btn color="blue darken-1" flat @click="postProduct()">Save</v-btn>
-          </v-card-actions>
         </v-card>
       </v-dialog>
     </v-layout>
@@ -47,48 +57,23 @@
 </template>
 
 <script>
-  import axios from 'axios'
-    
   export default {
-    name: 'Formulario',
+    name: 'Producto',
     data() {
       return {
         dialog: false,
-        items: [
-          {
-            key: 'title',
-            label: "Nombre del producto",
-            hint: "Ej: Cafe badilico"
-          },
-          {
-            key: 'price',
-            label: 'Precio'
-          },
-          {
-            key: 'description',
-            label: 'Descripcion'
-          }
-        ],
-        models : {
-          title: '',
-          description: '',
-          price: null,
-          branch: 1,
-          photo : ''
-        },
-        errors: []
+        product: {
+          title: 'Test',
+          description: 'Esto es un test',
+          price: '150',
+          branch: '1',
+          photo: "http://192.168.0.4:8000/media/img/fede_nvpZVYL.jpg"
+        }
       }
     },
     methods: {
       postProduct() {
-        axios
-          .post('http://192.168.0.4:8000/rest/product/', this.models)
-          .then(res => {
-            this.models = res.data
-          })
-          .catch(e => {
-            this.errors.push(e)
-          })
+        this.$store.dispatch('createProduct', this.product)
       }
     }
   }

@@ -59,7 +59,7 @@
     name: "Toolbar",
     data () {
         return {
-          user: {} || this.$store.state.user,
+          user: this.$store.state.user || {},
           drawer: null,
           items: [
             { title: 'Home', icon: 'dashboard', route: '/' },

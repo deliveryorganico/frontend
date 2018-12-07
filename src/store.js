@@ -24,6 +24,18 @@ export default new Vuex.Store({
     }
   },
   actions: {
+    createProduct(context, product) {
+      axios
+        .post('/rest/product/', {
+          title: product.title,
+          description: product.description,
+          price: product.price,
+          branch: product.branch,
+        })
+        .catch(() => {
+          this.$router.push({ name: 'error' })
+        })
+    },
     obtainProducts(context) {
       axios
         .get('/rest/product/')
