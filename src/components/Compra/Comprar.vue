@@ -9,7 +9,9 @@
             <v-layout column fill-height>
               <v-spacer></v-spacer>
               <v-card-title class="black--text pl-5 pt-5">
-                <div class="display-1 pl-5 pt-5">{{ datos.title }}</div>
+                <div class="display-1 pl-5 pt-5">
+                  {{ datos.title }} {{ id }}
+                </div>
               </v-card-title>
             </v-layout>
           </v-img>
@@ -31,51 +33,12 @@
 
             <v-list-tile>
               <v-list-tile-action>
-                <v-icon>person</v-icon>
-              </v-list-tile-action>
-
-              <v-list-tile-content>
-                <v-list-tile-title>Nombre Empresa</v-list-tile-title>
-                <v-list-tile-sub-title>Dubowez SRA</v-list-tile-sub-title>
-              </v-list-tile-content>
-            </v-list-tile>
-
-            <v-divider inset></v-divider>
-
-            <v-list-tile>
-              <v-list-tile-action>
-                <v-icon>chat</v-icon>
-              </v-list-tile-action>
-              <v-list-tile-content>
-                <v-list-tile-title>ali_connors@example.com</v-list-tile-title>
-                <v-list-tile-sub-title>Work</v-list-tile-sub-title>
-              </v-list-tile-content>
-            </v-list-tile>
-
-            <v-divider inset></v-divider>
-
-            <v-list-tile>
-              <v-list-tile-action>
-                <v-icon>phone</v-icon>
-              </v-list-tile-action>
-              <v-list-tile-content>
-                <v-list-tile-title>Telefono</v-list-tile-title>
-                <v-list-tile-sub-title>
-                  (650) 555-1234
-                </v-list-tile-sub-title>
-              </v-list-tile-content>
-            </v-list-tile>
-
-            <v-divider inset></v-divider>
-
-            <v-list-tile>
-              <v-list-tile-action>
                 <v-icon>info</v-icon>
               </v-list-tile-action>
               <v-list-tile-content>
                 <v-list-tile-title>Descripcion</v-list-tile-title>
                 <v-list-tile-sub-title>
-                  Esta es una descripcion
+                  {{ datos.description }}
                 </v-list-tile-sub-title>
               </v-list-tile-content>
             </v-list-tile>
@@ -120,6 +83,7 @@
     name: 'Comprar',
     data() {
       return {
+        id: this.$route.params.id,
         datos: [],
         rating: 4.3,
         items: ['1', '2', '3', '4', '5', '10'],
@@ -127,9 +91,12 @@
     },
     created() {
       axios
-        .get('http://192.168.0.4:8000/rest/product/1/')
-        .then(res => {
-          this.datos = res.data
+        .get(`http://0.0.0.0:8000/rest/product/${this.id}/`)
+        .then(response => {
+          this.datos = response.data
+        })
+        .catch(() => {
+          this.$router.push({ name: 'error' })
         })
     }
   }
