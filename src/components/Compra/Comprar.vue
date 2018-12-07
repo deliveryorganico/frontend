@@ -31,51 +31,12 @@
 
             <v-list-tile>
               <v-list-tile-action>
-                <v-icon>person</v-icon>
-              </v-list-tile-action>
-
-              <v-list-tile-content>
-                <v-list-tile-title>Nombre Empresa</v-list-tile-title>
-                <v-list-tile-sub-title>Dubowez SRA</v-list-tile-sub-title>
-              </v-list-tile-content>
-            </v-list-tile>
-
-            <v-divider inset></v-divider>
-
-            <v-list-tile>
-              <v-list-tile-action>
-                <v-icon>chat</v-icon>
-              </v-list-tile-action>
-              <v-list-tile-content>
-                <v-list-tile-title>ali_connors@example.com</v-list-tile-title>
-                <v-list-tile-sub-title>Work</v-list-tile-sub-title>
-              </v-list-tile-content>
-            </v-list-tile>
-
-            <v-divider inset></v-divider>
-
-            <v-list-tile>
-              <v-list-tile-action>
-                <v-icon>phone</v-icon>
-              </v-list-tile-action>
-              <v-list-tile-content>
-                <v-list-tile-title>Telefono</v-list-tile-title>
-                <v-list-tile-sub-title>
-                  (650) 555-1234
-                </v-list-tile-sub-title>
-              </v-list-tile-content>
-            </v-list-tile>
-
-            <v-divider inset></v-divider>
-
-            <v-list-tile>
-              <v-list-tile-action>
                 <v-icon>info</v-icon>
               </v-list-tile-action>
               <v-list-tile-content>
                 <v-list-tile-title>Descripcion</v-list-tile-title>
                 <v-list-tile-sub-title>
-                  Esta es una descripcion
+                  {{ datos.description }}
                 </v-list-tile-sub-title>
               </v-list-tile-content>
             </v-list-tile>
