@@ -32,11 +32,10 @@
               <div v-bind:style="styleObject">Informacion Personal</div>
             </v-container>
           </v-card>
-
             <v-list>
               <template v-for="(item, i) in items">
                 <v-divider v-if="item.divider" :key="i"></v-divider>
-                <v-list-tile v-else :key="item.title">
+                <v-list-tile v-else :key="item.title" @click>
                   <v-list-tile-title>
                     {{ item.quest }}
                     {{ item.title }}
@@ -70,6 +69,7 @@
 </template>
 
 <script>
+  import axios from 'axios'
   import Pie from '../Pie'
   import Toolbar from '../Toolbar'
 
@@ -106,9 +106,15 @@
       color: 'black',
       fontSize: '16px'
     }
-
-
-  })
+  }),
+  created() {
+      axios
+        .get('http://0.0.0.0:8000/rest/profile/2/')
+        .then(res => {
+          this.profile = res.data
+        })
+        .catch(e => this.errors.push(e))
+    }
   }
 
 </script>
