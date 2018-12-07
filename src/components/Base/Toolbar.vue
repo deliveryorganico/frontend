@@ -3,8 +3,7 @@
     <v-navigation-drawer
         v-model="drawer"
         absolute
-        temporary
-      >
+        temporary>
         <v-list class="pa-1">
           <v-list-tile avatar>
             <v-list-tile-avatar>
@@ -50,13 +49,20 @@
           Delivery Organico 
         </router-link>
       </v-toolbar-title>
+      <v-spacer/>
+      <InputSearch/>
     </v-toolbar>
   </div>
 </template>
 
 <script>
+  import InputSearch from './InputSearch'
+
   export default {
     name: "Toolbar",
+    components: {
+      InputSearch
+    },
     data () {
         return {
           user: this.$store.state.user || {},

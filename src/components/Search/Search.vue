@@ -1,10 +1,8 @@
 <template>
-  <div id="home">
-    <v-content>
-      <Parallax></Parallax>
-      <v-layout row wrap style="margin-top: 40px; margin-bottom: 40px">
+  <div id="search">
+    <v-layout row wrap style="margin-top: 40px; margin-bottom: 40px">
         <!-- <v-flex xs1></v-flex> -->
-        <div v-for="product in products"
+        <div v-for="product in products_search"
           :key="product.id"
           style="margin-right: 40px; margin-left: 110px; margin-top: 40px;">
           <Product
@@ -14,27 +12,20 @@
           :img="product.photo"/>
         </div>
       </v-layout>
-    </v-content>
   </div>
 </template>
-mprar
+
 <script>
   import { mapState } from 'vuex'
-  import Product from './Home/Product'
-  import Parallax from './Home/Parallax'
-
+  import Product from '../Home/Product'
+  
   export default {
-    name: 'Home',
+    name: 'Search',
     components: {
-      Product,
-      Parallax
-    },
-    mounted() {
-      this.$store.dispatch('obtainProducts')
+      Product
     },
     computed: mapState([
-      'products'
-    ])
+      'products_search'
+    ]) 
   }
 </script>
-

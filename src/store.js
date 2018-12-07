@@ -4,17 +4,21 @@ import axios from 'axios'
 
 Vue.use(Vuex)
 
-axios.defaults.baseURL = 'http://192.168.0.4:8000'
+axios.defaults.baseURL = 'http://192.168.60.119:8000'
 
 export default new Vuex.Store({
   state: {
     token: localStorage.getItem('access_token') || null,
     user: localStorage.getItem('user') || null,
-    products: null
+    products: null,
+    products_search: null
   },
   mutations: {
     setProducts(state, products){
       state.products = products
+    },
+    setSearch(state, products) {
+      state.products_search = products
     },
     obtainToken(state, token) {
       state.token = token
@@ -92,6 +96,17 @@ export default new Vuex.Store({
             reject(error)
           })
       })
+    },
+    search(context, title) {
+      axios
+        .get(`/rest/product/?search=${title}`)
+        .then(response => {          
+          context.commit('setSearch', response.data)
+          // this.$router.push({ name: 'search' })
+        })
+        .catch((error) => {
+          console.log(error);
+        })
     }
   }
 })

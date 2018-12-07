@@ -8,6 +8,7 @@ import Login from './components/User/Login'
 import Logout from './components/User/Logout'
 import Profile from './components/Profile/Profile'
 import Register from './components/User/Register'
+import Search from './components/Search/Search'
 
 Vue.use(VueRouter)
 
@@ -50,6 +51,14 @@ const routes = [
         meta: {
           title: 'Error'
         }
+      },
+      {
+        path: '/search',
+        component: Search,
+        name: 'search',
+        meta: {
+          title: 'Search'
+        }
       }
     ]
   },
@@ -76,7 +85,7 @@ const routes = [
     meta: {
       title: 'Register'
     }
-  }
+  }  
 ]
 
 export default new VueRouter({
